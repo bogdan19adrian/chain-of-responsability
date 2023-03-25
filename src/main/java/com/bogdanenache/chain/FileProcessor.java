@@ -23,7 +23,11 @@ public class FileProcessor<T extends Processable> {
         return this;
     }
 
-    public void errorHandler(ErrorHandler fileRetriever){
-        fileRetriever.process();
+    public ErrorHandler errorHandler(ErrorHandler<Processable> errorHandler){
+        errorHandler.process();
+    }
+
+    public void successHandler(SuccessHandler<Processable> successHandler){
+        successHandler.process();
     }
 }
