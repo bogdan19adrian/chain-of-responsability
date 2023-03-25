@@ -2,6 +2,7 @@ package com.bogdanenache.processing;
 
 import com.bogdanenache.chain.ErrorHandler;
 import com.bogdanenache.chain.FileProcessor;
+import com.bogdanenache.chain.SuccessHandler;
 import com.bogdanenache.chain.handlers.*;
 import com.bogdanenache.chain.validators.ValidateFileHeaderAndFooter;
 import com.bogdanenache.chain.validators.ValidateFileLength;
@@ -23,6 +24,7 @@ public class FileProcessingOrchestrator implements FileProcessingConfigurerAdapt
                 .validate(new ValidateFileLength<>(processable))
                 .validate(new ValidateFileRows<>(processable))
                 .processFile(new ProcessFile(processable))
+                .successHandler(new SuccessHandler<>(processable))
                 .errorHandler(new ErrorHandler<>(processable));
     }
 }

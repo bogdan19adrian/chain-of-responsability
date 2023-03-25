@@ -28,7 +28,7 @@ public class ValidateFileName<T extends Processable> implements Validator {
             processingFileClient.setStatus(Status.ERROR);
 
         } else {
-            handler.process();
+            processingFileClient.setStatus(Status.PROCESSING);
         }
     }
 

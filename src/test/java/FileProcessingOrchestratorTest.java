@@ -18,6 +18,21 @@ class FileProcessingOrchestratorTest {
     @DisplayName("Run through oll chain and print logs")
     void runClean(){
         final String bucketName = "bucketName";
+        final String fileName = "fileName1";
+        final ProcessingFileClient file = new ProcessingFileClient();
+        file.setBucketName(bucketName);
+        file.setFileName(fileName);
+
+        fileProcessingOrchestrator.process("", "", file);
+
+        assertEquals(bucketName, file.getBucketName());
+        assertEquals(fileName, file.getFileName());
+    }
+
+    @Test
+    @DisplayName("Run through oll chain and print logs")
+    void runCleanWithError(){
+        final String bucketName = "bucketName";
         final String fileName = "fileName";
         final ProcessingFileClient file = new ProcessingFileClient();
         file.setBucketName(bucketName);
