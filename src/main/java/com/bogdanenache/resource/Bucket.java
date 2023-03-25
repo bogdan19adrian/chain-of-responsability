@@ -1,0 +1,22 @@
+package com.bogdanenache.resource;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+        "name"
+})
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Bucket {
+
+    @JsonProperty("name")
+    private String name;
+
+}
